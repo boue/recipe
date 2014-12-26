@@ -1,1 +1,2 @@
-%h1 this is the placeholder for the recipe index action
+- @recipe.each do |recipe|
+  %h2= link_to recipe.title, recipe
