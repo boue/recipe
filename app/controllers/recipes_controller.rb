@@ -21,6 +21,24 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    #nothing here bc before_action takes care of find reciping via private method
+  end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    #already finds the recipe we want to destroy via the before_action
+    @recipe.destroy
+    redirect_to root_path, notice: "Successfully deleted recipe"
+  end
+
   private
 
   def recipe_params
